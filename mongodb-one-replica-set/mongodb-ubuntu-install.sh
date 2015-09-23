@@ -41,8 +41,8 @@ MONGODB_PORT=27017
 IS_ARBITER=false
 IS_LAST_MEMBER=false
 JOURNAL_ENABLED=true
-ADMIN_USER_NAME=""
-ADMIN_USER_PASSWORD=""
+ADMIN_USER_NAME="admin"
+ADMIN_USER_PASSWORD="tempmongopass"
 INSTANCE_COUNT=1
 NODE_IP_PREFIX="10.0.0.1"
 LOGGING_KEY="[logging-key]"
@@ -216,7 +216,8 @@ configure_replicaset()
 	
 	# Enable replica set in the configuration file
 	sed -i "s|#keyFile: \"\"$|keyFile: \"${REPLICA_SET_KEY_FILE}\"|g" /etc/mongod.conf
-	sed -i "s|authorization: \"disabled\"$|authorization: \"enabled\"|g" /etc/mongod.conf
+	#modified to disable authorization
+	# sed -i "s|authorization: \"disabled\"$|authorization: \"enabled\"|g" /etc/mongod.conf
 	sed -i "s|#replication:|replication:|g" /etc/mongod.conf
 	sed -i "s|#replSetName:|replSetName:|g" /etc/mongod.conf
 	
