@@ -41,8 +41,8 @@ MONGODB_PORT=27017
 IS_ARBITER=false
 IS_LAST_MEMBER=false
 JOURNAL_ENABLED=true
-ADMIN_USER_NAME="admin"
-ADMIN_USER_PASSWORD="tempmongopass"
+ADMIN_USER_NAME=""
+ADMIN_USER_PASSWORD=""
 INSTANCE_COUNT=1
 NODE_IP_PREFIX="10.0.0.1"
 LOGGING_KEY="[logging-key]"
@@ -332,9 +332,11 @@ configure_db_users()
 {
 	# Create a system administrator
 	log "Creating a system administrator"
-	mongo master --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[{ role: 'userAdminAnyDatabase', db: 'admin' }, { role: 'clusterAdmin', db: 'admin' }, { role: 'readWriteAnyDatabase', db: 'admin' }, { role: 'dbAdminAnyDatabase', db: 'admin' } ]})"
-	mongo tasks --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[{ role: 'userAdminAnyDatabase', db: 'admin' }, { role: 'clusterAdmin', db: 'admin' }, { role: 'readWriteAnyDatabase', db: 'admin' }, { role: 'dbAdminAnyDatabase', db: 'admin' } ]})"
-
+	# mongo master --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[{ role: 'userAdminAnyDatabase', db: 'admin' }, { role: 'clusterAdmin', db: 'admin' }, { role: 'readWriteAnyDatabase', db: 'admin' }, { role: 'dbAdminAnyDatabase', db: 'admin' } ]})"
+	# mongo tasks --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[{ role: 'userAdminAnyDatabase', db: 'admin' }, { role: 'clusterAdmin', db: 'admin' }, { role: 'readWriteAnyDatabase', db: 'admin' }, { role: 'dbAdminAnyDatabase', db: 'admin' } ]})"
+	
+	mongo admin --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[ 'readWrite', 'dbAdmin', 'userAdmin','dbOwner']})"
+	
 }
 
 # Step 1
