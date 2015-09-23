@@ -152,8 +152,8 @@
           "settings": {
 
             "fileUris": [
-              "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/node-mongodb-high-availability/Script/templateScript.sh",
-              "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/node-mongodb-high-availability/nodeservice/app.js"
+              "https://raw.githubusercontent.com/maninderjit/MEAN-demo/master/mongodb-one-replica-set/Script/templateScript.sh",
+              "https://raw.githubusercontent.com/maninderjit/MEAN-demo/master/mongodb-one-replica-set/nodeservice/app.js"
 
             ],
             "commandToExecute": "sh templateScript.sh"
