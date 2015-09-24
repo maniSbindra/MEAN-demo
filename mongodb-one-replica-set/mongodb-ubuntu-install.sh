@@ -335,7 +335,14 @@ configure_db_users()
 	# mongo master --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[{ role: 'userAdminAnyDatabase', db: 'admin' }, { role: 'clusterAdmin', db: 'admin' }, { role: 'readWriteAnyDatabase', db: 'admin' }, { role: 'dbAdminAnyDatabase', db: 'admin' } ]})"
 	# mongo tasks --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[{ role: 'userAdminAnyDatabase', db: 'admin' }, { role: 'clusterAdmin', db: 'admin' }, { role: 'readWriteAnyDatabase', db: 'admin' }, { role: 'dbAdminAnyDatabase', db: 'admin' } ]})"
 	
-	mongo admin --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[ 'readWrite', 'dbAdmin', 'userAdmin','dbOwner']})"
+	
+	
+	mongo admin --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[ 'readWrite', 'dbAdmin', 'userAdmin','dbOwner', 'clusterAdmin','clusterManager','dbAdminAnyDatabase','readWriteAnyDatabase','userAdminAnyDatabase']})"
+	
+	mongo master --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[ 'readWrite', 'dbAdmin', 'userAdmin','dbOwner', 'clusterAdmin','clusterManager','dbAdminAnyDatabase','readWriteAnyDatabase','userAdminAnyDatabase']})"
+	
+	mongo tasks --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[ 'readWrite', 'dbAdmin', 'userAdmin','dbOwner', 'clusterAdmin','clusterManager','dbAdminAnyDatabase','readWriteAnyDatabase','userAdminAnyDatabase']})"
+	
 	
 }
 
