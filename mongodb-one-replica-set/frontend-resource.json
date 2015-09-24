@@ -10,6 +10,7 @@
         },
         "storageSettings": {
             "type": "object",
+            "storageNameForFrontEnd" : "7stoacc",
             "metadata": {
                 "Description": "Storage settings object"
             }
