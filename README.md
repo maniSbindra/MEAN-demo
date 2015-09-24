@@ -6,5 +6,19 @@
 # Demo 1 using front end NODEJS cluster and Single mongoDB Replica Set
 # Show effect of mongodb configurations, including write concern on the performance
 
+# Steps to get things started
+# Execute following from Powershell
+
+#1 you will be prompted for your azure accound credentials after this command
+Add-AzureAccount
+
+#2
+Switch-AzureMode AzureResourceManager
+
+#3 
+New-AzureResourceGroupDeployment -Name mongo-deploy-2 -ResourceGroupName  5-res-grp -TemplateUri https://raw.githubusercontent.com/maninderjit/MEAN-demo/master/mongodb-one-replica-set/azuredeploy.json -Verbose
+
+
+
 # Demo 2 using fron end NODEJS cluster and a MongoDB sharded cluster with 2-3 replicasets
 # Demonstarte when to / When not to Shard the cluster, and compare performance
