@@ -6,7 +6,7 @@
     "value": ""
   },
   "storageAccountName": {
-    "value": ""
+    "value": "7stoacc"
   },
   "location": {
     "value": "West US"
@@ -27,7 +27,7 @@
     "value": "10.0.0.1"
   },
   "storageNameForFrontEnd": {
-    "value": ""
+    "value": "7stoacc"
   },
   "dnsNameForPublicIP": {
     "value": ""
@@ -45,6 +45,6 @@
     "value": "rs0"
   },
   "replicaSetKey": {
-    "value": ""
+    "value": "top-secret-key"
   }
 }

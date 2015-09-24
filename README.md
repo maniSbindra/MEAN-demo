@@ -19,6 +19,7 @@ Switch-AzureMode AzureResourceManager
 
 # 3 Create ResourceGroup and Storage Account (Optional)
  New-AzureResourceGroup -Name 7resgrp -Location "West US"
+## Remove-AzureResourceGroup -Name 7resgrp
  
  New-AzureStorageAccount -Name 7stoacc -Location "WEST US" -AccountType Standard_LRS -ResourceGroupName 7resgrp
  
