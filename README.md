@@ -9,13 +9,18 @@
 # Steps to get things started
 # Execute following from Powershell
 
-#1 you will be prompted for your azure accound credentials after this command
+# 1 Create ResourceGroup and Storage Account (Optional)
+ New-AzureResourceGroup -Name 7resgrp -Location "West US"
+ 
+ New-AzureStorageAccount -Name 7stoacc -Location "WEST US" -AccountType Standard_LRS -ResourceGroupName 7resgrp
+
+# 2 you will be prompted for your azure accound credentials after this command
 Add-AzureAccount
 
-#2
+# 3
 Switch-AzureMode AzureResourceManager
 
-#3 
+# 4 You will be promted for username, password and storage account. The username and password will have root access on the Ubuntu VMs as well as admin acess on the mongodb replica set
 New-AzureResourceGroupDeployment -Name mongo-deploy-2 -ResourceGroupName  5-res-grp -TemplateUri https://raw.githubusercontent.com/maninderjit/MEAN-demo/master/mongodb-one-replica-set/azuredeploy.json -Verbose
 
 
