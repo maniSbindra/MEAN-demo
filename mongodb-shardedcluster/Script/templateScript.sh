@@ -11,6 +11,11 @@ sudo apt-get -y install npm
 sudo npm -y install express
 sudo npm -y install mongodb
 
+sed -i 's/youradminname/'$1'/g' /opt/app.js
+sed -i 's/youradminpassword/'$2'/g' /opt/app.js
+
+nodejs /opt/app.js
+
 
 
 
