@@ -78,7 +78,6 @@
       },
       "dnsNameForPublicIP": {
         "type": "string",
-        "defaultValue": "newdnsmeanmani",
         "metadata": {
           "description": "Unique DNS Name for the Public IP used to access the front end Virtual Machine."
         }
