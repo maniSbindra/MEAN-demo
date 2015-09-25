@@ -23,7 +23,7 @@ Switch-AzureMode AzureResourceManager
  
  New-AzureStorageAccount -Name 7stoacc -Location "WEST US" -AccountType Standard_LRS -ResourceGroupName 7resgrp
  
-# 4 You will be promted for username, password and storage account. The username and password will have root access on the Ubuntu VMs as well as admin acess on the mongodb replica set
+# 4 You will be promted for username, password, storage account, frontendstorage account and Dns name for node cluster . The username and password will have root access on the Ubuntu VMs as well as admin acess on the mongodb replica set
 New-AzureResourceGroupDeployment -Name mongo-deploy-2 -ResourceGroupName  5-res-grp -TemplateUri https://raw.githubusercontent.com/maninderjit/MEAN-demo/master/mongodb-one-replica-set/azuredeploy.json -Verbose
 
 
