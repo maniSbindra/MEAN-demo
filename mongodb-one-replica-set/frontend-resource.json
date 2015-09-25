@@ -42,8 +42,7 @@
     "vmName": "MyUbuntuVM",
     "vmSize": "Standard_D1",
     "virtualNetworkName": "[concat(parameters('networkSettings').virtualNetworkName)]",
-    "commandWithParams" : "[concat('sh templateScript.sh ', parameters('machineSettings').adminUsername,' ',parameters('machineSettings').adminPassword)]"
-    
+    "commandWithParams" : "[concat('sh templateScript.sh ', parameters('machineSettings').adminUsername,' ',parameters('machineSettings').adminPassword)]",    
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
     "subnetRef": "[parameters('networkSettings').subnetRef]"  
   },
