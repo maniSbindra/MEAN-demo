@@ -156,7 +156,7 @@
               "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/node-mongodb-high-availability/nodeservice/app.js"
 
             ],
-            "commandToExecute": "[concat('sh templateScript.sh ',[parameters('machineSettings').adminUsername,'  ',[parameters('machineSettings').adminPassword] "
+            "commandToExecute": "[concat('sh templateScript.sh ', parameters('machineSettings').adminUsername,'  ',parameters('machineSettings').adminPassword] "
           }
         }
     }
