@@ -71,7 +71,6 @@
       },
       "storageNameForFrontEnd": {
         "type": "string",
-        "defaultValue": "frtstoacc",
         "metadata": {
           "description": "Name of storage for front end VM's."
         }
