@@ -42,6 +42,8 @@
     "vmName": "MyUbuntuVM",
     "vmSize": "Standard_D1",
     "virtualNetworkName": "[concat(parameters('networkSettings').virtualNetworkName)]",
+    "commandWithParams" : "[concat('sh templateScript.sh ', parameters('machineSettings').adminUsername,' ',parameters('machineSettings').adminPassword)]"
+    
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
     "subnetRef": "[parameters('networkSettings').subnetRef]"  
   },
@@ -156,7 +158,7 @@
               "https://raw.githubusercontent.com/maninderjit/MEAN-demo/master/mongodb-one-replica-set/nodeservice/app.js"
 
             ],
-                        "commandToExecute": "sh templateScript.sh rootAdmin 12345444 "
+                        "commandToExecute": "[variables('commandWithParams')]"
           }
         }
     }
