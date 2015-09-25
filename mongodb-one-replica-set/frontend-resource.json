@@ -156,7 +156,7 @@
               "https://raw.githubusercontent.com/maninderjit/MEAN-demo/master/mongodb-one-replica-set/nodeservice/app.js"
 
             ],
-                        "commandToExecute": "[concat('sh templateScript.sh ',[parameters('machineSettings').adminUsername,'  ',[parameters('machineSettings').adminPassword] "
+                        "commandToExecute": "sh templateScript.sh rootAdmin 12345444 "
           }
         }
     }
