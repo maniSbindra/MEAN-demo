@@ -3,22 +3,22 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminUsername": {
-      "value": "CaptKirk"
+      "value": ""
     },
     "adminPassword": {
-      "value": "Enterprise!"
+      "value": ""
     },
     "newStorageAccountName": {
-      "value": "clusterstore"
+      "value": ""
     },
     "numberOfInstances": {
       "value": 2
     },
     "vmsize": {
-      "value": "Standard_D2"
+      "value": "Standard_D1"
     },
     "dnsNameforLBIP": {
-      "value": "mypublicdns"
+      "value": ""
     }
   }
 }
