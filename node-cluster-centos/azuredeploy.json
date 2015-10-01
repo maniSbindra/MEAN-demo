@@ -40,7 +40,7 @@
     },
     "vmSize": {
       "type": "string",
-      "defaultValue": "Standard_D1",
+      "defaultValue": "Standard_D2",
       "allowedValues": [
         "Standard_A3",
         "Standard_A6",
