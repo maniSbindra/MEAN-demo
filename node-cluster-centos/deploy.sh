@@ -6,6 +6,7 @@ sed -i "\$aGATEWAY=${gateway[0]}" /etc/sysconfig/network
 service network restart
 
 # install wget, vim, unzip, Node, express,  mongodb, and the chirpApp
+# mongodb only installed for testing. App will eventually connect to mongodb replicaset
 
 
 # install wget, vim, unzip
