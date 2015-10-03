@@ -51,7 +51,7 @@
     },
     "applicationGatewayName": {
       "type": "string",
-      "defaultValue": "applicationGateway1",
+        "defaultValue": "applicationGateway1",
       "metadata": {
         "description": "application gateway name"
       }
@@ -89,7 +89,7 @@
     },
     "frontendPort": {
       "type": "int",
-      "defaultValue": 80,
+      "defaultValue": 8080,
       "metadata": {
         "description": "application gateway front end port"
       }
@@ -168,9 +168,7 @@
           {
             "name": "appGatewayIpConfig",
             "properties": {
-              "subnet": {
-                "id": "[variables('subnetRef')]"
-              }
+              "publicIP" : "104.209.38.202"
             }
           }
         ],
@@ -178,9 +176,7 @@
           {
             "name": "appGatewayFrontendIP",
             "properties": {
-              "subnet": {
-                "id": "[variables('subnetRef')]"
-              }
+              "publicIP" : "104.209.38.202"
             }
           }
         ],
