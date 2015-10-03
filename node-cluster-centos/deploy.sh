@@ -9,14 +9,14 @@ service network restart
 
 
 # install wget, vim, unzip
-sudo yum install wget -y
-sudo yum install vim -y
-sudo yum install unzip -y
+yum install wget -y
+yum install vim -y
+yum install unzip -y
 
 # install nodejs and npm
-sudo yum install epel-release -y
-sudo yum install nodejs -y
-sudo yum install npm -y
+yum install epel-release -y
+yum install nodejs -y
+yum install npm -y
 
 # install mongodb
 echo "[mongodb]
@@ -25,11 +25,11 @@ baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/
 gpgcheck=0
 enabled=1" > mongo.repo
 
-sudo mv mongo.repo /etc/yum.repos.d/mongodb-org-3.0.repo
-sudo mkdir -p /data/db
-sudo mkdir -p /var/lib/mongo
-sudo yum install -y mongodb-org	
-sudo service mongod start
+mv mongo.repo /etc/yum.repos.d/mongodb-org-3.0.repo
+mkdir -p /data/db
+mkdir -p /var/lib/mongo
+yum install -y mongodb-org	
+service mongod start
 
 
 # install chirp app
@@ -45,7 +45,7 @@ npm start
 
 
 
-sudo yum install -y mongodb-org
+yum install -y mongodb-org
 
 
 
