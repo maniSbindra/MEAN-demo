@@ -220,7 +220,7 @@
               "FrontendPort": {
                 "Id": "[concat(resourceId('Microsoft.Network/applicationGateways', parameters('applicationGatewayName')), '/frontendPorts/appGatewayFrontendPort')]"
               },
-              "Protocol": "Https",
+              "Protocol": "Http",
               "SslCertificate": null
             }
           }
