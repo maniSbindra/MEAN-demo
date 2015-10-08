@@ -19,8 +19,7 @@ yum install epel-release -y
 yum install nodejs -y
 yum install npm -y
 
-# install mongodb - This is just for testing. For demo mongodb will connect
-# to the mongodb replica set and not to the the local instance
+# install mongodb
 echo "[mongodb]
 name=MongoDB Repository
 baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/

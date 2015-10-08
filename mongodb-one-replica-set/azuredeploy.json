@@ -68,19 +68,8 @@
         "metadata": {
           "description": "The IP address prefix that will be used for constructing a static private IP address for each node in the cluster"
         }
-      },
-      "storageNameForFrontEnd": {
-        "type": "string",
-        "metadata": {
-          "description": "Name of storage for front end VM's."
-        }
-      },
-      "dnsNameForPublicIP": {
-        "type": "string",
-        "metadata": {
-          "description": "Unique DNS Name for the Public IP used to access the front end Virtual Machine."
-        }
-      },
+      }
+      ,
         "ubuntuOSVersion": {
         "type": "string",
         "defaultValue": "14.04.2-LTS",
@@ -139,6 +128,7 @@
             }
         }
     },
+    
     "variables": {
         "_comment0": "/* T-shirt sizes may vary for different reasons, and some customers may want to modify these - so feel free to go ahead and define your favorite t-shirts */",
         "tshirtSizeXSmall": {
@@ -222,7 +212,7 @@
         "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
         "jumpboxTemplateUrl": "[concat(variables('templateBaseUrl'), variables(concat('jumpboxTemplate', parameters('jumpbox'))))]",
         "arbiterTemplateUrl": "[concat(variables('templateBaseUrl'), variables(concat('arbiterTemplate', variables('clusterSpec').arbiter)))]",
-        "frontendnodeserverTemplateUrl":  "[concat(variables('templateBaseUrl'), 'frontend-resource.json')]", 
+        
         "commonSettings": {
             "availabilitySetName": "mongodbAvailSet",
           "location": "[parameters('location')]"
@@ -231,8 +221,7 @@
             "vhdStorageAccountName": "[parameters('storageAccountName')]",
             "vhdContainerName": "[variables('vmStorageAccountContainerName')]",
             "destinationVhdsContainer": "[concat('https://', parameters('storageAccountName'), variables('vmStorageAccountDomain'), '/', variables('vmStorageAccountContainerName'), '/')]",
-          "storageAccountCount": "[variables('clusterSpec').storageAccountCount]",
-          "storageNameForFrontEnd": "[parameters('storageNameForFrontEnd')]"
+          "storageAccountCount": "[variables('clusterSpec').storageAccountCount]"
         },
         "networkSettings": {
             "virtualNetworkName": "[parameters('virtualNetworkName')]",
