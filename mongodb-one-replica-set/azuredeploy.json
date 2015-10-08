@@ -237,8 +237,7 @@
             "adminPassword": "[parameters('adminPassword')]",
             "machineNamePrefix": "mongodb-",
           "ubuntuOSVersion": "[parameters('ubuntuOSVersion')]",
-          "dnsNameForPublicIP": "[parameters('dnsNameForPublicIP')]",
-            "osImageReference": {
+                "osImageReference": {
                 "publisher": "[variables('osFamilySpec').imagePublisher]",
                 "offer": "[variables('osFamilySpec').imageOffer]",
                 "sku": "[variables('osFamilySpec').imageSKU]",
