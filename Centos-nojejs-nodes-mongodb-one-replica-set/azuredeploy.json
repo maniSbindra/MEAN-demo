@@ -358,6 +358,9 @@
         "customScriptFilePath": "https://raw.githubusercontent.com/maninderjit/MEAN-demo/master/Centos-nojejs-nodes-mongodb-one-replica-set/deploy.sh",
         "customScriptCommandToExecute": "bash deploy.sh",
         "publicIPAddressName": "myPublicIP",
+        
+         "virtualNetworkName": "[parameters('virtualNetworkName')]",
+           
         "availabilitySetName": "nodejsAvSet",
         "subnet1Name": "nodejsSubnet",
         "subnet1Prefix": "10.0.3.0/24",
