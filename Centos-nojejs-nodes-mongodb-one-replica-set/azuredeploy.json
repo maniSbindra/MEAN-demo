@@ -36,7 +36,7 @@
         },
         "virtualNetworkName": {
             "type": "string",
-            "defaultValue": "demoSolutionVnet",
+            "defaultValue": "demoVnet",
             "metadata": {
                 "description": "The arbitrary name of the virtual network provisioned for the MongoDB deployment"
             }
@@ -351,6 +351,7 @@
         "storageAccountForXXLarge_13": "5",
         "storageAccountForXXLarge_14": "6",
         "storageAccountForXXLarge_15": "7",
+        
         "imagePublisher": "OpenLogic",
         "imageOffer": "CentOS",
         "imageSKU": "7.1",
