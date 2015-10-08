@@ -251,7 +251,7 @@
             "imageOffer": "UbuntuServer",
             "imageSKU": "14.04.2-LTS"
         },
-        "vmStorageAccountContainerName": "vhd-mongodb",
+        "vmStorageAccountContainerName": "vhds",
         "vmStorageAccountDomain": ".blob.core.windows.net",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
         "sharedScriptUrl": "[concat('https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/', variables('osFamilySpec').osName, '/')]",
@@ -368,7 +368,6 @@
         "subnet2Name": "Subnet-2",
         "subnet2Prefix": "10.0.1.0/24",
         "subnet2Ref": "[concat(variables('vnetID'),'/subnets/', variables('subnet2Name'))]",
-        "vmStorageAccountContainerName": "vhds",
         "lbName": "myLB",
         "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('lbName'))]",
         "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/LoadBalancerFrontEnd')]",
