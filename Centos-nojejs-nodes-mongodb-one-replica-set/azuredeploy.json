@@ -656,32 +656,7 @@
                 ]
             }
         },
-        {
-            "apiVersion": "2015-05-01-preview",
-            "type": "Microsoft.Network/networkInterfaces",
-            "name": "[concat('nic2', copyindex())]",
-            "location": "[resourceGroup().location]",
-            "copy": {
-                "name": "nicLoop",
-                "count": "[parameters('numberOfInstances')]"
-            },
-            "dependsOn": [
-                "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
-            ],
-            "properties": {
-                "ipConfigurations": [
-                    {
-                        "name": "ipconfig2",
-                        "properties": {
-                            "privateIPAllocationMethod": "Dynamic",
-                            "subnet": {
-                                "id": "[variables('subnet2Ref')]"
-                            }
-                        }
-                    }
-                ]
-            }
-        },
+       
         {
             "apiVersion": "2015-05-01-preview",
             "name": "[variables('lbName')]",
