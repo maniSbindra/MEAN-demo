@@ -360,7 +360,7 @@
         "publicIPAddressName": "myPublicIP",
         
          "virtualNetworkName": "[parameters('virtualNetworkName')]",
-           
+           "nodeAddressPrefix": "[parameters('nodeAddressPrefix')]",
         "availabilitySetName": "nodejsAvSet",
         "subnet1Name": "nodejsSubnet",
         "subnet1Prefix": "10.0.3.0/24",
@@ -588,7 +588,7 @@
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
-                        "[variables('addressPrefix')]"
+                        "[variables('nodeAddressPrefix')]"
                     ]
                 },
                 "subnets": [
