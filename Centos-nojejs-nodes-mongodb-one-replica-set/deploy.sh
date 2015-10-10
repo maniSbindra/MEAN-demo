@@ -12,7 +12,7 @@ service network restart
 # install wget, vim, unzip, svn (to download chirp subfolder from github)
 yum install wget -y
 yum install vim -y
-yum install unzip -y
+# yum install unzip -y
 yum install svn -y
 
 # install nodejs and npm
@@ -36,8 +36,10 @@ service mongod start
 
 
 # install chirp app
-wget https://github.com/hwz/chirp/archive/master.zip
-unzip master.zip
-cd chirp-master/chirp
+# wget https://github.com/hwz/chirp/archive/master.zip
+# unzip master.zip
+# cd chirp-master/chirp
+svn checkout https://github.com/maninderjit/MEAN-demo/trunk/chirp
+
 npm install
 npm start

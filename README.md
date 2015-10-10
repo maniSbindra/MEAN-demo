@@ -3,6 +3,8 @@
 # initial code base taken from # 
 # https://github.com/Azure/azure-quickstart-templates/tree/master/node-mongodb-high-availability
 
+# copy of chirp app taken from https://github.com/MicrosoftLearning/chirp/ 
+
 # Demo 1 using front end NODEJS cluster and Single mongoDB Replica Set
 # Show effect of mongodb configurations, including write concern on the performance
 

@@ -11,7 +11,9 @@ var LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session');
 var mongoose = require('mongoose');                         //add for Mongo support
 var models = require('./models/models.js');                 //mongoose schemas
-mongoose.connect('mongodb://localhost/test-chirp');              //connect to Mongo
+
+//mongoose connection string modified to connect to mongodb replica set
+mongoose.connect('mongodb://mongodb-member1,mongodb-member0/tasks');                //connect to Mongo
 
 //import the routers
 var index = require('./routes/index');
