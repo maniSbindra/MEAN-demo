@@ -11,8 +11,12 @@ require('./models/models');
 var index = require('./routes/index');
 var api = require('./routes/api');
 var authenticate = require('./routes/authenticate')(passport);
-var mongoose = require('mongoose');                         //add for Mongo support
-mongoose.connect('mongodb://localhost/test-chirp');              //connect to Mongo
+var mongoose = require('mongoose');         
+                //add for Mongo support
+// mongoose.connect('mongodb://localhost/test-chirp');              //connect to Mongo
+// connect to mongodb replicaset
+mongoose.connect('mongodb://mongodb-member1,mongodb-member0/tasks');  
+
 var app = express();
 
 // view engine setup
