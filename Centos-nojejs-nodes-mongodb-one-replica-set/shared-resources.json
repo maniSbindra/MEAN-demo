@@ -62,15 +62,9 @@
                         }
                     },
                     {
-                        "name": "[parameters('networkSettings').subnet1Name]",
+                        "name": "nodejsSubnet",
                         "properties": {
-                            "addressPrefix": "[parameters('networkSettings').subnet1Prefix]"
-                        }
-                    },
-                    {
-                        "name": "[parameters('networkSettings').subnet2Name]",
-                        "properties": {
-                            "addressPrefix": "[parameters('networkSettings').subnet2Prefix]"
+                            "addressPrefix": "10.0.2.0/24"
                         }
                     }
                      
