@@ -41,5 +41,7 @@ service mongod start
 # cd chirp-master/chirp
 svn checkout https://github.com/maninderjit/MEAN-demo/trunk/chirp
 
+# <TODO add sed command to replace mongodb username and password to be used in app
+
 npm install
 npm start
