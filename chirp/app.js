@@ -15,7 +15,16 @@ var mongoose = require('mongoose');
                 //add for Mongo support
 // mongoose.connect('mongodb://localhost/test-chirp');              //connect to Mongo
 // connect to mongodb replicaset
-mongoose.connect('mongodb://mongodb-member1,mongodb-member0/tasks');  
+var options = {
+  user: '@@user@@',
+  pass: '@@pass@@',
+auth:{authdb:"tasks"}
+}
+
+
+mongoose.connect('mongodb://mongodb-member1,montodb-member0/tasks',options);
+
+//mongoose.connect('mongodb://mongodb-member1,mongodb-member0/tasks');  
 
 var app = express();
 
