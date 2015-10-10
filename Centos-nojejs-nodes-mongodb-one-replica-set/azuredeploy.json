@@ -615,7 +615,7 @@
                 "count": "[parameters('numberOfInstances')]"
             },
             "dependsOn": [
-                "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+                "[concat('Microsoft.Resources/deployments/', 'shared-resources')]",
                 "[concat('Microsoft.Network/loadBalancers/', variables('lbName'))]"
             ],
             "properties": {
@@ -738,7 +738,7 @@
             },
             "dependsOn": [
                 "[concat('Microsoft.Network/networkInterfaces/', 'nic1', copyIndex())]",
-                
+                "[concat('Microsoft.Resources/deployments/', 'shared-resources')]",
                 "[concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName'))]",
                 "[concat('Microsoft.Compute/availabilitySets/', variables('availabilitySetName'))]"
             ],
@@ -792,6 +792,7 @@
                 "count": "[parameters('numberOfInstances')]"
             },
             "dependsOn": [
+                "[concat('Microsoft.Resources/deployments/', 'shared-resources')]",
                 "[concat('Microsoft.Compute/virtualMachines/', 'myvm', copyIndex())]"
             ],
             "properties": {
