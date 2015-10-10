@@ -629,7 +629,6 @@
                 "count": "[parameters('numberOfInstances')]"
             },
             "dependsOn": [
-                "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
                 "[concat('Microsoft.Network/loadBalancers/', variables('lbName'))]"
             ],
             "properties": {
