@@ -12,8 +12,8 @@ service network restart
 # install wget, vim, unzip, svn (to download chirp subfolder from github)
 yum install wget -y
 yum install vim -y
-# yum install unzip -y
-yum install svn -y
+yum install unzip -y
+# yum install svn -y
 
 # install nodejs and npm
 yum install epel-release -y
