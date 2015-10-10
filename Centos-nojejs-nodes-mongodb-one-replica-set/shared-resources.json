@@ -60,7 +60,21 @@
                         "properties": {
                             "addressPrefix": "[parameters('networkSettings').subnetPrefix]"
                         }
+                    },
+                    {
+                        "name": "[parameters('networkSettings').subnet1Name]",
+                        "properties": {
+                            "addressPrefix": "[parameters('networkSettings').subnet1Prefix]"
+                        }
+                    },
+                    {
+                        "name": "[parameters('networkSettings').subnet2Name]",
+                        "properties": {
+                            "addressPrefix": "[parameters('networkSettings').subnet2Prefix]"
+                        }
                     }
+                     
+                    
                 ]
             }
         }
