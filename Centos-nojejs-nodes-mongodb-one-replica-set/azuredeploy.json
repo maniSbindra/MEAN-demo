@@ -385,7 +385,7 @@
         "imageSKU": "7.1",
         "customScriptFilePath": "https://raw.githubusercontent.com/maninderjit/MEAN-demo/master/Centos-nojejs-nodes-mongodb-one-replica-set/deploy.sh",
         
-        "customScriptCommandToExecute": "[concat('bash deploy.sh ', parameters('machineSettings').adminUsername,'  ',parameters('machineSettings').adminPassword)]",
+        "customScriptCommandToExecute": "[concat('bash deploy.sh ', parameters('adminUsername'),'  ',parameters('adminPassword'))]",
         "publicIPAddressName": "myPublicIP",
         
          "virtualNetworkName": "[parameters('virtualNetworkName')]",
