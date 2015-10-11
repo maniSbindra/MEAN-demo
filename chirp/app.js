@@ -22,7 +22,7 @@ auth:{authdb:"tasks"}
 }
 
 
-mongoose.connect('mongodb://mongodb-member1,montodb-member0/tasks',options);
+mongoose.connect('mongodb://mongodb-member1,montodb-member0/test-chirp',options);
 
 //mongoose.connect('mongodb://mongodb-member1,mongodb-member0/tasks');  
 

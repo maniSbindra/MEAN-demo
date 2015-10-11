@@ -22,17 +22,17 @@ yum install npm -y
 
 # install mongodb - This is just for testing. For demo mongodb will connect
 # to the mongodb replica set and not to the the local instance
-echo "[mongodb]
-name=MongoDB Repository
-baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/
-gpgcheck=0
-enabled=1" > mongo.repo
+# echo "[mongodb]
+# name=MongoDB Repository
+# baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/
+# gpgcheck=0
+# enabled=1" > mongo.repo
 
-mv mongo.repo /etc/yum.repos.d/mongodb-org-3.0.repo
-mkdir -p /data/db
-mkdir -p /var/lib/mongo
-yum install -y mongodb-org	
-service mongod start
+# mv mongo.repo /etc/yum.repos.d/mongodb-org-3.0.repo
+# mkdir -p /data/db
+# mkdir -p /var/lib/mongo
+# yum install -y mongodb-org	
+# service mongod start
 
 
 # install chirp app
@@ -40,7 +40,13 @@ service mongod start
 # unzip master.zip
 # cd chirp-master/chirp
 svn checkout https://github.com/maninderjit/MEAN-demo/trunk/chirp
+cd chirp
 
+if [ "$1" ] && [ "$2" ]; then
+# replace username and password which node uses to connect to mongodb
+sed -i 's/@@user@@/'$1'/g' ./app.js
+sed -i 's/@@pass@@/'$2'/g' ./app.js
+fi
 # <TODO add sed command to replace mongodb username and password to be used in app
 
 npm install

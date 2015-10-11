@@ -48,6 +48,15 @@
                 "description": "Subnet name for the virtual network that resources will be provisioned in to"
             }
         },
+        
+        "subnet1Name": {
+            "type": "string",
+            "defaultValue": "nodejsSubnet",
+            "metadata": {
+                "description": "Subnet name for the virtual network that resources will be provisioned in to"
+            }
+        },
+        
         "addressPrefix": {
             "type": "string",
             "defaultValue": "10.0.0.0/16",
@@ -62,6 +71,15 @@
                 "description": "The network address space for the virtual subnet"
             }
         },
+        
+        "subnet1Prefix": {
+            "type": "string",
+            "defaultValue": "10.0.1.0/24",
+            "metadata": {
+                "description": "The network address space for the virtual subnet"
+            }
+        },
+        
         "nodeAddressPrefix": {
             "type": "string",
             "defaultValue": "10.0.0.1",
@@ -265,12 +283,7 @@
         "jumpboxTemplateUrl": "[concat(variables('templateBaseUrl'), variables(concat('jumpboxTemplate', parameters('jumpbox'))))]",
         "arbiterTemplateUrl": "[concat(variables('templateBaseUrl'), variables(concat('arbiterTemplate', variables('clusterSpec').arbiter)))]",
         
-        "subnet1Name": "nodejsSubnet",
-        "subnet1Prefix": "10.0.3.0/24",
-        "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', variables('subnet1Name'))]",
-        "subnet2Name": "Subnet-2",
-        "subnet2Prefix": "10.0.1.0/24",
-        "subnet2Ref": "[concat(variables('vnetID'),'/subnets/', variables('subnet2Name'))]",
+        "subnet1Ref": "[concat(variables('vnetID'), '/subnets/', parameters('subnet1Name'))]",
         
         "commonSettings": {
             "availabilitySetName": "mongodbAvailSet",
@@ -289,13 +302,11 @@
             "subnetPrefix": "[parameters('subnetPrefix')]",
             "subnetRef": "[concat(variables('vnetID'), '/subnets/', parameters('subnetName'))]",
             
-            "subnet1Name": "[parameters('subnetName')]",
-            "subnet1Prefix": "[parameters('subnetPrefix')]",
-            "subnet1Ref": "[concat(variables('vnetID'), '/subnets/', parameters('subnetName'))]",
+            "subnet1Name": "[parameters('subnet1Name')]",
+            "subnet1Prefix": "[parameters('subnet1Prefix')]",
+            "subnet1Ref": "[concat(variables('vnetID'), '/subnets/', parameters('subnet1Name'))]",
             
-            "subnet2Name": "[parameters('subnetName')]",
-            "subnet2Prefix": "[parameters('subnetPrefix')]",
-            "subnet2Ref": "[concat(variables('vnetID'), '/subnets/', parameters('subnetName'))]",
+            
             
             "machineIpPrefix": "[parameters('nodeAddressPrefix')]",
             "vnetID": "[variables('vnetID')]"
@@ -373,7 +384,8 @@
         "imageOffer": "CentOS",
         "imageSKU": "7.1",
         "customScriptFilePath": "https://raw.githubusercontent.com/maninderjit/MEAN-demo/master/Centos-nojejs-nodes-mongodb-one-replica-set/deploy.sh",
-        "customScriptCommandToExecute": "bash deploy.sh",
+        
+        "customScriptCommandToExecute": "[concat('bash deploy.sh ', parameters('machineSettings').adminUsername,'  ',parameters('machineSettings').adminPassword)]",
         "publicIPAddressName": "myPublicIP",
         
          "virtualNetworkName": "[parameters('virtualNetworkName')]",
