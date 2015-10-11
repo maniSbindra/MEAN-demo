@@ -18,7 +18,7 @@ var mongoose = require('mongoose');
 var options = {
   user: '@@user@@',
   pass: '@@pass@@',
-auth:{authdb:"tasks"}
+auth:{authdb:"admin"}
 }
 
 
