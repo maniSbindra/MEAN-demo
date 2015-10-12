@@ -12,8 +12,10 @@ var index = require('./routes/index');
 var api = require('./routes/api');
 var authenticate = require('./routes/authenticate')(passport);
 var mongoose = require('mongoose');         
-                //add for Mongo support
-// mongoose.connect('mongodb://localhost/test-chirp');              //connect to Mongo
+
+
+//connect to local Mongo
+//mongoose.connect('mongodb://localhost/test-chirp');              //connect to Mongo
 // connect to mongodb replicaset
 var options = {
   user: '@@user@@',
@@ -22,9 +24,9 @@ auth:{authdb:"admin"}
 }
 
 
-mongoose.connect('mongodb://mongodb-member1,montodb-member0/test-chirp',options);
+ mongoose.connect('mongodb://mongodb-member1,mongodb-member0/test-chirp',options);
 
-//mongoose.connect('mongodb://mongodb-member1,mongodb-member0/tasks');  
+// mongoose.connect('mongodb://mongodb-member1,mongodb-member0/tasks');  
 
 var app = express();
 
