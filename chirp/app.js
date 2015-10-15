@@ -15,7 +15,7 @@ var mongoose = require('mongoose');
 
 
 //connect to local Mongo
-//mongoose.connect('mongodb://localhost/test-chirp');              //connect to Mongo
+// mongoose.connect('mongodb://localhost/test-chirp');              //connect to Mongo
 // connect to mongodb replicaset
 var options = {
   user: '@@user@@',
@@ -24,7 +24,7 @@ auth:{authdb:"admin"}
 }
 
 
- mongoose.connect('mongodb://mongodb-member1,mongodb-member0/test-chirp',options);
+mongoose.connect('mongodb://mongodb-member1,mongodb-member0/test-chirp',options);
 
 // mongoose.connect('mongodb://mongodb-member1,mongodb-member0/tasks');  
 
