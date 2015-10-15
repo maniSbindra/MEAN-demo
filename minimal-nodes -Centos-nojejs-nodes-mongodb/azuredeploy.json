@@ -276,7 +276,7 @@
         "sharedScriptUrl": "[concat('https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/', variables('osFamilySpec').osName, '/')]",
         "scriptUrl": "https://raw.githubusercontent.com/maninderjit/MEAN-demo/master/Centos-nojejs-nodes-mongodb-one-replica-set/",
         "templateBaseUrl": "[variables('scriptUrl')]",
-        "jumpboxTemplateEnabled": "jumpbox-resources.json",
+        "jumpboxTemplateEnabled": "empty-resources.json",
         "jumpboxTemplateDisabled": "empty-resources.json",
         "arbiterTemplateEnabled": "arbiter-resources.json",
         "arbiterTemplateDisabled": "empty-resources.json",
