@@ -207,7 +207,7 @@
             "vmSizeArbiter": "Standard_A0",
             "numberOfMembers": 1,
             "totalMemberCount": 2,
-            "arbiter": "Enabled",
+            "arbiter": "Disabled",
             "vmTemplate": "[concat(variables('templateBaseUrl'), 'member-resources-D1.json')]",
             "storageAccountCount": 1,
             "dataDiskSize": 20
