@@ -60,7 +60,15 @@
                         "properties": {
                             "addressPrefix": "[parameters('networkSettings').subnetPrefix]"
                         }
+                    },
+                    {
+                        "name": "nodejsSubnet",
+                        "properties": {
+                            "addressPrefix": "10.0.2.0/24"
+                        }
                     }
+                     
+                    
                 ]
             }
         }

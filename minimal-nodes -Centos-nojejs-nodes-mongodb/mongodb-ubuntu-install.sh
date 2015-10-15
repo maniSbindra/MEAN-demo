@@ -216,7 +216,8 @@ configure_replicaset()
 	
 	# Enable replica set in the configuration file
 	sed -i "s|#keyFile: \"\"$|keyFile: \"${REPLICA_SET_KEY_FILE}\"|g" /etc/mongod.conf
-	sed -i "s|authorization: \"disabled\"$|authorization: \"enabled\"|g" /etc/mongod.conf
+	#modified to disable authorization
+	# sed -i "s|authorization: \"disabled\"$|authorization: \"enabled\"|g" /etc/mongod.conf
 	sed -i "s|#replication:|replication:|g" /etc/mongod.conf
 	sed -i "s|#replSetName:|replSetName:|g" /etc/mongod.conf
 	
@@ -331,9 +332,18 @@ configure_db_users()
 {
 	# Create a system administrator
 	log "Creating a system administrator"
-	mongo master --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[{ role: 'userAdminAnyDatabase', db: 'admin' }, { role: 'clusterAdmin', db: 'admin' }, { role: 'readWriteAnyDatabase', db: 'admin' }, { role: 'dbAdminAnyDatabase', db: 'admin' } ]})"
-	mongo tasks --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[{ role: 'userAdminAnyDatabase', db: 'admin' }, { role: 'clusterAdmin', db: 'admin' }, { role: 'readWriteAnyDatabase', db: 'admin' }, { role: 'dbAdminAnyDatabase', db: 'admin' } ]})"
-
+	 mongo master --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[{ role: 'userAdminAnyDatabase', db: 'admin' }, { role: 'clusterAdmin', db: 'admin' }, { role: 'readWriteAnyDatabase', db: 'admin' }, { role: 'dbAdminAnyDatabase', db: 'admin' } ]})"
+	 
+	 mongo test-chirp --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[{ role: 'userAdminAnyDatabase', db: 'admin' }, { role: 'clusterAdmin', db: 'admin' }, { role: 'readWriteAnyDatabase', db: 'admin' }, { role: 'dbAdminAnyDatabase', db: 'admin' } ]})"
+		
+	
+	 mongo admin --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[ 'readWrite', 'dbAdmin', 'userAdmin','dbOwner', 'clusterAdmin','clusterManager','dbAdminAnyDatabase','readWriteAnyDatabase','userAdminAnyDatabase']})"
+	
+	# mongo master --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[ 'readWrite', 'dbAdmin', 'userAdmin','dbOwner', 'clusterAdmin','clusterManager','dbAdminAnyDatabase','readWriteAnyDatabase','userAdminAnyDatabase']})"
+	
+	# mongo tasks --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[ 'readWrite', 'dbAdmin', 'userAdmin','dbOwner', 'clusterAdmin','clusterManager','dbAdminAnyDatabase','readWriteAnyDatabase','userAdminAnyDatabase']})"
+	
+	
 }
 
 # Step 1

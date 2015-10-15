@@ -42,6 +42,7 @@
     "vmName": "MyUbuntuVM",
     "vmSize": "Standard_D1",
     "virtualNetworkName": "[concat(parameters('networkSettings').virtualNetworkName)]",
+    "commandWithParams" : "[concat('sh templateScript.sh ', parameters('machineSettings').adminUsername,' ',parameters('machineSettings').adminPassword)]",    
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
     "subnetRef": "[parameters('networkSettings').subnetRef]"  
   },
@@ -152,11 +153,11 @@
           "settings": {
 
             "fileUris": [
-              "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/node-mongodb-high-availability/Script/templateScript.sh",
-              "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/node-mongodb-high-availability/nodeservice/app.js"
+              "https://raw.githubusercontent.com/maninderjit/MEAN-demo/master/mongodb-one-replica-set/Script/templateScript.sh",
+              "https://raw.githubusercontent.com/maninderjit/MEAN-demo/master/mongodb-one-replica-set/nodeservice/app.js"
 
             ],
-            "commandToExecute": "[concat('sh templateScript.sh ', parameters('machineSettings').adminUsername,'  ',parameters('machineSettings').adminPassword] "
+                        "commandToExecute": "[variables('commandWithParams')]"
           }
         }
     }
