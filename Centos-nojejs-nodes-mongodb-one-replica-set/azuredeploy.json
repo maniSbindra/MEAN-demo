@@ -51,7 +51,7 @@
         },
         
         "redisKey": {
-            "type": "string",
+            "type": "securestring",
             "metadata": {
                 "description": "The Redis instance Access Key"
             }
