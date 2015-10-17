@@ -56,4 +56,5 @@ npm install
 npm install pm2 -g
 pm2 update
 export NODE_ENV=production
-pm2 start ./bin/www
+# pm2 start ./bin/www
+npm start
