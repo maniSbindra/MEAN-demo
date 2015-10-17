@@ -53,8 +53,8 @@ fi
 # <TODO add sed command to replace mongodb username and password to be used in app
 
 npm install
-npm install pm2 -g
-pm2 update
-export NODE_ENV=production
+# npm install pm2 -g
+# pm2 update
+# export NODE_ENV=production
 # pm2 start ./bin/www
 npm start
