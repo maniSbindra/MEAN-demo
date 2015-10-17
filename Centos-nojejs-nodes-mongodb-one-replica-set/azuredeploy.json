@@ -34,6 +34,29 @@
                 "description": "Location where resources will be provisioned"
             }
         },
+        
+        "redisHost": {
+            "type": "string",
+            "metadata": {
+                "description": "Hostname of the Redis instance"
+            }
+        },
+        
+        "redisPort": {
+            "type": "string",
+            "defaultValue" : "6379",
+            "metadata": {
+                "description": "The TCP port of the redis instance"
+            }
+        },
+        
+        "redisKey": {
+            "type": "string",
+            "metadata": {
+                "description": "The Redis instance Access Key"
+            }
+        },
+        
         "virtualNetworkName": {
             "type": "string",
             "defaultValue": "demoVnet",
@@ -385,7 +408,7 @@
         "imageSKU": "7.1",
         "customScriptFilePath": "https://raw.githubusercontent.com/maninderjit/MEAN-demo/master/Centos-nojejs-nodes-mongodb-one-replica-set/deploy.sh",
         
-        "customScriptCommandToExecute": "[concat('bash deploy.sh ', parameters('adminUsername'),'  ',parameters('adminPassword'))]",
+        "customScriptCommandToExecute": "[concat('bash deploy.sh ', parameters('adminUsername'),'  ',parameters('adminPassword'),'  ',parameters('redisHost'),'  ',parameters('redisPort'),'  ',parameters('redisKey'))]",
         "publicIPAddressName": "myPublicIP",
         
          "virtualNetworkName": "[parameters('virtualNetworkName')]",

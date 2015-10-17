@@ -42,12 +42,18 @@ yum install npm -y
 svn checkout https://github.com/maninderjit/MEAN-demo/trunk/chirp
 cd chirp
 
-if [ "$1" ] && [ "$2" ]; then
+if [ "$1" ] && [ "$2" ] && [ "$3" ] && [ "$4" ] && [ "$5" ]; then
 # replace username and password which node uses to connect to mongodb
 sed -i 's/@@user@@/'$1'/g' ./app.js
 sed -i 's/@@pass@@/'$2'/g' ./app.js
+sed -i 's/@@redis-host@@/'$3'/g' ./app.js
+sed -i 's/@@redis-port@@/'$4'/g' ./app.js
+sed -i 's/@@redis-auth-key@@/'$5'/g' ./app.js
 fi
 # <TODO add sed command to replace mongodb username and password to be used in app
 
 npm install
-npm start
+npm install pm2 -g
+pm2 update
+export NODE_ENV=production
+pm2 start ./bin/www
