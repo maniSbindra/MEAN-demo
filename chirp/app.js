@@ -42,16 +42,16 @@ var app = express();
 var accessLogStream = fs.createWriteStream(__dirname + '/access.log', { flags: 'a' });
 var client;
 
-if (process.env.NODE_ENV == 'production') {
+// if (process.env.NODE_ENV == 'production') {
     app.use(morgan('combined', { stream: accessLogStream }));
     mongoose.connect('mongodb://mongodb-member1,mongodb-member0/test-chirp', options);
     client = redis.createClient('@@redis-port@@', '@@redis-host@@', { auth_pass: '@@redis-auth-key@@' });
 
-} else {
-    app.use(morgan('dev'));
-    mongoose.connect('mongodb://localhost/test-chirp');
-    client = redis.createClient('tcp://localhost:6379')
-}
+// } else {
+    // app.use(morgan('dev'));
+    // mongoose.connect('mongodb://localhost/test-chirp');
+    // client = redis.createClient('tcp://localhost:6379')
+// }
 
 
 
