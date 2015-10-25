@@ -140,7 +140,7 @@
         },
         "tshirtSize": {
             "type": "string",
-            "defaultValue": "XSmall",
+            "defaultValue": "Small",
             "allowedValues": [
                 "XSmall",
                 "Small",
@@ -774,7 +774,7 @@
             "dependsOn": [
                 "[concat('Microsoft.Network/networkInterfaces/', 'nic1', copyIndex())]",
                 "[concat('Microsoft.Resources/deployments/', 'shared-resources')]",
-                "[concat('Microsoft.Resources/deployments/', 'arbiter-resources')]",
+                "[concat('Microsoft.Resources/deployments/', 'lastmember-resources')]",
                 "[concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName'))]",
                 "[concat('Microsoft.Compute/availabilitySets/', variables('availabilitySetName'))]"
             ],
