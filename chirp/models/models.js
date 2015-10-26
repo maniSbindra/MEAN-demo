@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var safe = { w: 3, wtimeout: 10000 };
+var safe = { w: 2, wtimeout: 10000 };
 var quick = { w: 1, wtimeout: 10000 };
 
 var postSchema = new mongoose.Schema({

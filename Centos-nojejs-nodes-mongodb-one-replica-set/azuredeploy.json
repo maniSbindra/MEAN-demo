@@ -140,7 +140,7 @@
         },
         "tshirtSize": {
             "type": "string",
-            "defaultValue": "Small",
+            "defaultValue": "XSmall",
             "allowedValues": [
                 "XSmall",
                 "Small",
