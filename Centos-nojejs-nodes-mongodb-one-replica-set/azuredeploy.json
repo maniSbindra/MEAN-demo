@@ -409,13 +409,13 @@
         "customScriptFilePath": "https://raw.githubusercontent.com/maninderjit/MEAN-demo/master/Centos-nojejs-nodes-mongodb-one-replica-set/deploy.sh",
         
         "customScriptCommandToExecute": "[concat('bash deploy.sh ', parameters('adminUsername'),'  ',parameters('adminPassword'),'  ',parameters('redisHost'),'  ',parameters('redisPort'),'  ',parameters('redisKey'))]",
-        "publicIPAddressName": "myPublicIP",
+        "publicIPAddressName": "clusterPublicIP",
         
          "virtualNetworkName": "[parameters('virtualNetworkName')]",
            "AddressPrefix": "[parameters('AddressPrefix')]",
         "availabilitySetName": "nodejsAvSet",
         
-        "lbName": "myLB",
+        "lbName": "frontEndLB",
         "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('lbName'))]",
         "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/LoadBalancerFrontEnd')]",
         "lbPoolID": "[concat(variables('lbID'),'/backendAddressPools/BackendPool1')]",
@@ -765,7 +765,7 @@
         {
             "apiVersion": "2015-05-01-preview",
             "type": "Microsoft.Compute/virtualMachines",
-            "name": "[concat('myvm', copyIndex())]",
+            "name": "[concat('nodejsvm', copyIndex())]",
             "location": "[resourceGroup().location]",
             "copy": {
                 "name": "virtualMachineLoop",
@@ -786,7 +786,7 @@
                     "vmSize": "[parameters('vmSize')]"
                 },
                 "osProfile": {
-                    "computername": "[concat('vm', copyIndex())]",
+                    "computername": "[concat('node-member', copyIndex())]",
                     "adminUsername": "[parameters('adminUsername')]",
                     "adminPassword": "[parameters('adminPassword')]"
                 },
@@ -820,7 +820,7 @@
         },
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat('myvm', copyIndex(), '/extension')]",
+            "name": "[concat('nodejsvm', copyIndex(), '/extension')]",
             "apiVersion": "2015-05-01-preview",
             "location": "[resourceGroup().location]",
             "copy": {
@@ -829,7 +829,7 @@
             },
             "dependsOn": [
                 "[concat('Microsoft.Resources/deployments/', 'shared-resources')]",
-                "[concat('Microsoft.Compute/virtualMachines/', 'myvm', copyIndex())]"
+                "[concat('Microsoft.Compute/virtualMachines/', 'nodejsvm', copyIndex())]"
             ],
             "properties": {
                 "publisher": "Microsoft.OSTCExtensions",
@@ -844,5 +844,12 @@
                 }
             }
         }
-    ]
+    ],
+    "outputs": {
+        "publicDNSName" : {
+            "type" : "string",
+            "value" : "[[parameters('dnsNameforLBIP')]"
+        }
+        
+    }
 }

@@ -23,7 +23,7 @@ azure login
 
 # 2 
 # powershell
-Switch-AzureMode AzureResourceManager
+	Switch-AzureMode AzureResourceManager
 # CLI
 azure config mode arm
 
