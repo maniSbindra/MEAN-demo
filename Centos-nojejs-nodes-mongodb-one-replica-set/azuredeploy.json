@@ -57,6 +57,13 @@
             }
         },
         
+          "newrelicKey": {
+            "type": "securestring",
+            "metadata": {
+                "description": "New relic account where mongo node and nodejs node metrics will be sent"
+            }
+        },
+        
         "virtualNetworkName": {
             "type": "string",
             "defaultValue": "demoVnet",
@@ -193,7 +200,7 @@
         },
         "vmSize": {
             "type": "string",
-            "defaultValue": "Standard_D2",
+            "defaultValue": "Standard_D1",
             "allowedValues": [
                 "Standard_A3",
                 "Standard_A6",
@@ -337,6 +344,7 @@
         "machineSettings": {
             "adminUsername": "[parameters('adminUsername')]",
             "adminPassword": "[parameters('adminPassword')]",
+            "newrelicKey": "[parameters('newrelicKey')]",
             "machineNamePrefix": "mongodb-",
             "ubuntuOSVersion": "[parameters('ubuntuOSVersion')]",
             "osImageReference": {
@@ -349,7 +357,7 @@
         "clusterSpec": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
         "osFamily": "Ubuntu",
         "osFamilySpec": "[variables(concat('osFamily', variables('osFamily')))]",
-        "installCommand": "[concat('bash mongodb-', variables('osFamilySpec').osName, '-install.sh', ' -i ', variables('osFamilySpec').installerBaseUrl, ' -b ', variables('osFamilySpec').installerPackages, ' -r ', parameters('replicaSetName'), ' -k ', parameters('replicaSetKey'), ' -u ', parameters('adminUsername'), ' -p ', parameters('adminPassword'), ' -x ', variables('networkSettings').machineIpPrefix, ' -n ', variables('clusterSpec').totalMemberCount)]",
+        "installCommand": "[concat('bash mongodb-', variables('osFamilySpec').osName, '-install.sh', ' -i ', variables('osFamilySpec').installerBaseUrl, ' -b ', variables('osFamilySpec').installerPackages, ' -r ', parameters('replicaSetName'), ' -k ', parameters('replicaSetKey'), ' -u ', parameters('adminUsername'), ' -p ', parameters('adminPassword'), ' -w ', parameters('newrelicKey'), ' -x ', variables('networkSettings').machineIpPrefix, ' -n ', variables('clusterSpec').totalMemberCount)]",
         "vmScripts": {
             "scriptsToDownload": [
                 "[concat(variables('scriptUrl'), 'mongodb-', variables('osFamilySpec').osName, '-install.sh')]",
@@ -408,7 +416,7 @@
         "imageSKU": "7.1",
         "customScriptFilePath": "https://raw.githubusercontent.com/maninderjit/MEAN-demo/master/Centos-nojejs-nodes-mongodb-one-replica-set/deploy.sh",
         
-        "customScriptCommandToExecute": "[concat('bash deploy.sh ', parameters('adminUsername'),'  ',parameters('adminPassword'),'  ',parameters('redisHost'),'  ',parameters('redisPort'),'  ',parameters('redisKey'))]",
+        "customScriptCommandToExecute": "[concat('bash deploy.sh ', parameters('adminUsername'),'  ',parameters('adminPassword'),'  ',parameters('redisHost'),'  ',parameters('redisPort'),'  ',parameters('redisKey'),'  ',parameters('newrelicKey'))]",
         "publicIPAddressName": "clusterPublicIP",
         
          "virtualNetworkName": "[parameters('virtualNetworkName')]",
@@ -515,6 +523,7 @@
                         "value": {
                             "adminUsername": "[variables('machineSettings').adminUsername]",
                             "adminPassword": "[variables('machineSettings').adminPassword]",
+                            "newrelicKey": "[variables('machineSettings').newrelicKey]",
                             "machineNamePrefix": "[variables('machineSettings').machineNamePrefix]",
                             "osImageReference": "[variables('machineSettings').osImageReference]",
                             "vmSize": "[variables('clusterSpec').vmSizeMember]",

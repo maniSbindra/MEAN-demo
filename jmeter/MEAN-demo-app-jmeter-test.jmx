@@ -17,7 +17,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">100</stringProp>
+        <stringProp name="ThreadGroup.num_threads">300</stringProp>
         <stringProp name="ThreadGroup.ramp_time">60</stringProp>
         <longProp name="ThreadGroup.start_time">1444715658000</longProp>
         <longProp name="ThreadGroup.end_time">1444715658000</longProp>
@@ -55,7 +55,7 @@ vars.put(&quot;password&quot; , &quot;${__RandomString(5,ABCDEFGHIJKLMNOPQRSTUVW
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">23.99.58.72</stringProp>
+            <stringProp name="HTTPSampler.domain">40.118.244.41</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -93,7 +93,7 @@ vars.put(&quot;password&quot; , &quot;${__RandomString(5,ABCDEFGHIJKLMNOPQRSTUVW
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">23.99.58.72</stringProp>
+            <stringProp name="HTTPSampler.domain">40.118.244.41</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -154,7 +154,7 @@ vars.put(&quot;password&quot; , &quot;${__RandomString(5,ABCDEFGHIJKLMNOPQRSTUVW
               <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="postdata default write concern" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="postdata default write concern" enabled="false">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                 <collectionProp name="Arguments.arguments">
@@ -165,7 +165,7 @@ vars.put(&quot;password&quot; , &quot;${__RandomString(5,ABCDEFGHIJKLMNOPQRSTUVW
                   </elementProp>
                 </collectionProp>
               </elementProp>
-              <stringProp name="HTTPSampler.domain">23.99.58.72</stringProp>
+              <stringProp name="HTTPSampler.domain">40.118.244.41</stringProp>
               <stringProp name="HTTPSampler.port"></stringProp>
               <stringProp name="HTTPSampler.connect_timeout"></stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -194,7 +194,7 @@ vars.put(&quot;password&quot; , &quot;${__RandomString(5,ABCDEFGHIJKLMNOPQRSTUVW
                   </elementProp>
                 </collectionProp>
               </elementProp>
-              <stringProp name="HTTPSampler.domain">23.99.58.72</stringProp>
+              <stringProp name="HTTPSampler.domain">40.118.244.41</stringProp>
               <stringProp name="HTTPSampler.port"></stringProp>
               <stringProp name="HTTPSampler.connect_timeout"></stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>

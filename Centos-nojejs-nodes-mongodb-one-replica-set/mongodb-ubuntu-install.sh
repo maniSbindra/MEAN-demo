@@ -43,6 +43,7 @@ IS_LAST_MEMBER=false
 JOURNAL_ENABLED=true
 ADMIN_USER_NAME=""
 ADMIN_USER_PASSWORD=""
+NEW_RELIC_KEY=""
 INSTANCE_COUNT=1
 NODE_IP_PREFIX="10.0.0.1"
 LOGGING_KEY="[logging-key]"
@@ -61,6 +62,7 @@ help()
 	echo "		-n Number of member nodes"	
 	echo "		-a (arbiter indicator)"	
 	echo "		-l (last member indicator)"	
+	echo "		-w New Relic key"	
 }
 
 log()
@@ -105,6 +107,9 @@ while getopts :i:b:r:k:u:p:x:n:alh optname; do
 		;;		
 	p) # Administrator's user name
 		ADMIN_USER_PASSWORD=${OPTARG}
+		;;
+	w) # Administrator's user name
+		NEW_RELIC_KEY=${OPTARG}
 		;;	
 	x) # Private IP address prefix
 		NODE_IP_PREFIX=${OPTARG}
@@ -346,6 +351,18 @@ configure_db_users()
 	
 }
 
+configure_newrelic()
+{
+sudo echo deb http://apt.newrelic.com/debian/ newrelic non-free >> /etc/apt/sources.list.d/newrelic.list
+sudo wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -
+sudo apt-get update
+sudo apt-get install newrelic-sysmond
+sudo nrsysmond-config --set license_key=$(NEW_RELIC_KEY)
+sudo sed -i 's/#disable_docker=false/disable_docker=true/g' /etc/newrelic/nrsysmond.cfg
+sudo  /etc/init.d/newrelic-sysmond start
+}
+
+
 # Step 1
 configure_datadisks
 
@@ -367,6 +384,9 @@ configure_db_users
 
 # Step 7
 configure_replicaset
+
+# Step 8
+configure_newrelic
 
 # Exit (proudly)
 exit 0

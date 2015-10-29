@@ -35,6 +35,13 @@ yum install npm -y
 # service mongod start
 
 
+#install new relic agent
+rpm -Uvh https://download.newrelic.com/pub/newrelic/el5/i386/newrelic-repo-5-3.noarch.rpm
+yum install newrelic-sysmond -y
+nrsysmond-config --set license_key=$6
+sed -i 's/#disable_docker=false/disable_docker=true/g' /etc/newrelic/nrsysmond.cfg
+/etc/init.d/newrelic-sysmond start
+
 # install chirp app
 # wget https://github.com/hwz/chirp/archive/master.zip
 # unzip master.zip
@@ -50,7 +57,8 @@ sed -i 's/@@redis-host@@/'$3'/g' ./app.js
 sed -i 's/@@redis-port@@/'$4'/g' ./app.js
 sed -i 's/@@redis-auth-key@@/'$5'/g' ./app.js
 fi
-# <TODO add sed command to replace mongodb username and password to be used in app
+
+
 
 npm install
 # npm install pm2 -g
