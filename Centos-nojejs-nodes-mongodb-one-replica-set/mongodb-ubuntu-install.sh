@@ -58,11 +58,12 @@ help()
 	echo "		-k Replica set key"
 	echo "		-u System administrator's user name"
 	echo "		-p System administrator's password"
+	echo "		-w New Relic key"	
 	echo "		-x Member node IP prefix"	
 	echo "		-n Number of member nodes"	
 	echo "		-a (arbiter indicator)"	
 	echo "		-l (last member indicator)"	
-	echo "		-w New Relic key"	
+	
 }
 
 log()
@@ -82,7 +83,7 @@ then
 fi
 
 # Parse script parameters
-while getopts :i:b:r:k:u:p:x:n:alh optname; do
+while getopts :i:b:r:k:u:p:w:x:n:alh optname; do
 
 	# Log input parameters (except the admin password) to facilitate troubleshooting
 	if [ ! "$optname" == "p" ] && [ ! "$optname" == "k" ]; then
