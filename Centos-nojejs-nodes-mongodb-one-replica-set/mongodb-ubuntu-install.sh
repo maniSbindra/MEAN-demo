@@ -358,7 +358,7 @@ sudo echo deb http://apt.newrelic.com/debian/ newrelic non-free >> /etc/apt/sour
 sudo wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -
 sudo apt-get update
 sudo apt-get install newrelic-sysmond
-sudo nrsysmond-config --set license_key=$(NEW_RELIC_KEY)
+sudo nrsysmond-config --set license_key=${NEW_RELIC_KEY}
 sudo sed -i 's/#disable_docker=false/disable_docker=true/g' /etc/newrelic/nrsysmond.cfg
 sudo  /etc/init.d/newrelic-sysmond start
 }
