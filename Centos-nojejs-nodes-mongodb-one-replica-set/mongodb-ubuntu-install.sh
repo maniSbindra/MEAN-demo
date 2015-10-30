@@ -344,6 +344,7 @@ configure_db_users()
 		
 	
 	 mongo admin --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[ 'readWrite', 'dbAdmin', 'userAdmin','dbOwner', 'clusterAdmin','clusterManager','dbAdminAnyDatabase','readWriteAnyDatabase','userAdminAnyDatabase']})"
+	 
 	
 	# mongo master --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[ 'readWrite', 'dbAdmin', 'userAdmin','dbOwner', 'clusterAdmin','clusterManager','dbAdminAnyDatabase','readWriteAnyDatabase','userAdminAnyDatabase']})"
 	
@@ -357,7 +358,7 @@ configure_newrelic()
 sudo echo deb http://apt.newrelic.com/debian/ newrelic non-free >> /etc/apt/sources.list.d/newrelic.list
 sudo wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -
 sudo apt-get update
-sudo apt-get install newrelic-sysmond
+sudo apt-get install newrelic-sysmond -y
 sudo nrsysmond-config --set license_key=${NEW_RELIC_KEY}
 sudo sed -i 's/#disable_docker=false/disable_docker=true/g' /etc/newrelic/nrsysmond.cfg
 sudo  /etc/init.d/newrelic-sysmond start
