@@ -109,7 +109,7 @@ while getopts :i:b:r:k:u:p:w:x:n:alh optname; do
 	p) # Administrator's user name
 		ADMIN_USER_PASSWORD=${OPTARG}
 		;;
-	w) # Administrator's user name
+	w) # New Relic Key
 		NEW_RELIC_KEY=${OPTARG}
 		;;	
 	x) # Private IP address prefix
