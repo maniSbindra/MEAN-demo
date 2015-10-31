@@ -56,6 +56,7 @@ router.route('/posts')
 			if(err){
 				return res.send(500, err);
 			}
+			res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
 			return res.send(200,posts);
 		});
 	});
