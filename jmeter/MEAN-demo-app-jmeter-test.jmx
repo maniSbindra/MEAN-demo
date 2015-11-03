@@ -55,7 +55,7 @@ vars.put(&quot;password&quot; , &quot;${__RandomString(5,ABCDEFGHIJKLMNOPQRSTUVW
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">40.112.146.83</stringProp>
+            <stringProp name="HTTPSampler.domain">lb.mean-demo.future-unleashed.com</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -93,7 +93,7 @@ vars.put(&quot;password&quot; , &quot;${__RandomString(5,ABCDEFGHIJKLMNOPQRSTUVW
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">40.112.146.83</stringProp>
+            <stringProp name="HTTPSampler.domain">lb.mean-demo.future-unleashed.com</stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -125,7 +125,7 @@ vars.put(&quot;password&quot; , &quot;${__RandomString(5,ABCDEFGHIJKLMNOPQRSTUVW
             <stringProp name="LoopController.loops">5</stringProp>
           </LoopController>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="postdata default write concern" enabled="false">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="postdata default write concern" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                 <collectionProp name="Arguments.arguments">
@@ -136,7 +136,7 @@ vars.put(&quot;password&quot; , &quot;${__RandomString(5,ABCDEFGHIJKLMNOPQRSTUVW
                   </elementProp>
                 </collectionProp>
               </elementProp>
-              <stringProp name="HTTPSampler.domain">40.112.146.83</stringProp>
+              <stringProp name="HTTPSampler.domain">lb.mean-demo.future-unleashed.com</stringProp>
               <stringProp name="HTTPSampler.port"></stringProp>
               <stringProp name="HTTPSampler.connect_timeout"></stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -154,7 +154,7 @@ vars.put(&quot;password&quot; , &quot;${__RandomString(5,ABCDEFGHIJKLMNOPQRSTUVW
               <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="postdata - writeconcern3" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="postdata - writeconcern3" enabled="false">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                 <collectionProp name="Arguments.arguments">
@@ -165,7 +165,7 @@ vars.put(&quot;password&quot; , &quot;${__RandomString(5,ABCDEFGHIJKLMNOPQRSTUVW
                   </elementProp>
                 </collectionProp>
               </elementProp>
-              <stringProp name="HTTPSampler.domain">40.112.146.83</stringProp>
+              <stringProp name="HTTPSampler.domain">lb.mean-demo.future-unleashed.com</stringProp>
               <stringProp name="HTTPSampler.port"></stringProp>
               <stringProp name="HTTPSampler.connect_timeout"></stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
