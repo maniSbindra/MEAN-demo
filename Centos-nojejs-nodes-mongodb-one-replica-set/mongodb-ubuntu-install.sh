@@ -301,10 +301,9 @@ security:
     #keyFile: ""
     authorization: "disabled"
 storage:
-    dbPath: "$MONGODB_DATA/db"
-    directoryPerDB: true
-    journal:
-        enabled: $JOURNAL_ENABLED
+	dbPath: "/data/db"
+    engine: "wiredTiger"
+            
 #replication:
     #replSetName: "$REPLICA_SET_NAME"
 EOF
