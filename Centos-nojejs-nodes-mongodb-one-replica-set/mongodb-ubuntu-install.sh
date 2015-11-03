@@ -301,9 +301,9 @@ security:
     #keyFile: ""
     authorization: "disabled"
 storage:
-	dbPath: "/data/db"
+    dbPath: "$MONGODB_DATA/db"
     engine: "wiredTiger"
-            
+    	
 #replication:
     #replSetName: "$REPLICA_SET_NAME"
 EOF
