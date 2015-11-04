@@ -302,7 +302,9 @@ security:
     authorization: "disabled"
 storage:
     dbPath: "$MONGODB_DATA/db"
-    engine: "wiredTiger"
+    directoryPerDB: true
+    journal:
+	    enabled: $JOURNAL_ENABLED
     	
 #replication:
     #replSetName: "$REPLICA_SET_NAME"
