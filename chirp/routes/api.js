@@ -58,7 +58,7 @@ router.route('/posts')
 			}
 			res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
 			return res.send(200,posts);
-		});
+		}).sort({"created_at" : -1}).limit(100);
 	});
 
 //post-specific commands. likely won't be used

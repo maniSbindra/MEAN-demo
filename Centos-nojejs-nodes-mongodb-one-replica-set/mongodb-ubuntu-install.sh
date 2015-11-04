@@ -344,11 +344,13 @@ configure_db_users()
 		
 	
 	 mongo admin --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[ 'readWrite', 'dbAdmin', 'userAdmin','dbOwner', 'clusterAdmin','clusterManager','dbAdminAnyDatabase','readWriteAnyDatabase','userAdminAnyDatabase']})"
-	 
 	
-	# mongo master --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[ 'readWrite', 'dbAdmin', 'userAdmin','dbOwner', 'clusterAdmin','clusterManager','dbAdminAnyDatabase','readWriteAnyDatabase','userAdminAnyDatabase']})"
+	# create index on username on users collection
+	mongo test-chirp --host 127.0.0.1 --eval "db.users.createIndex({"username" : 1 })"
 	
-	# mongo tasks --host 127.0.0.1 --eval "db.createUser({user: '${ADMIN_USER_NAME}', pwd: '${ADMIN_USER_PASSWORD}', roles:[ 'readWrite', 'dbAdmin', 'userAdmin','dbOwner', 'clusterAdmin','clusterManager','dbAdminAnyDatabase','readWriteAnyDatabase','userAdminAnyDatabase']})"
+	# create index on created_at descending on posts collection
+	mongo test-chirp --host 127.0.0.1 --eval "db.posts.createIndex({"created_at" : -1 })"
+	
 	
 	
 }

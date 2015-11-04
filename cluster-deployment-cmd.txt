@@ -1,0 +1,52 @@
+PS C:\> 
+New-AzureResourceGroupDeployment -Name clusterdeploy4111 -ResourceGroupName  1resgrp -TemplateUri 
+https://raw.githubusercontent.com/maninderjit/MEAN-demo/master/Centos-nojejs-nodes-mongodb-one-replica-set/azuredeploy.json -Verbose
+
+cmdlet New-AzureResourceGroupDeployment at command pipeline position 1
+Supply values for the following parameters:
+(Type !? for Help.)
+adminUsername: rootAdmin
+adminPassword: *********
+storageAccountNameFromTemplate: 1stoacc
+redisHost: mean-demo.redis.cache.windows.net
+redisKey: ********************************************
+newrelicKey: ****************************************
+newStorageAccountName: frt1stoacc
+dnsNameforLBIP: mean4113mani
+VERBOSE: 3:11:14 PM - Template is valid.
+VERBOSE: 3:11:19 PM - Create template deployment 'clusterdeploy4111'.
+VERBOSE: 3:11:26 PM - Resource Microsoft.Resources/deployments 'shared-resources' provisioning status is running
+VERBOSE: 3:11:30 PM - Resource Microsoft.Storage/storageAccounts 'frt1stoacc' provisioning status is running
+VERBOSE: 3:11:34 PM - Resource Microsoft.Network/publicIPAddresses 'clusterPublicIP' provisioning status is running
+VERBOSE: 3:11:34 PM - Resource Microsoft.Compute/availabilitySets 'nodejsAvSet' provisioning status is succeeded
+VERBOSE: 3:11:46 PM - Resource Microsoft.Network/publicIPAddresses 'clusterPublicIP' provisioning status is succeeded
+VERBOSE: 3:11:57 PM - Resource Microsoft.Network/loadBalancers 'frontEndLB' provisioning status is succeeded
+VERBOSE: 3:12:08 PM - Resource Microsoft.Storage/storageAccounts 'frt1stoacc' provisioning status is succeeded
+VERBOSE: 3:12:17 PM - Resource Microsoft.Resources/deployments 'shared-resources' provisioning status is succeeded
+VERBOSE: 3:12:25 PM - Resource Microsoft.Network/networkInterfaces 'nic11' provisioning status is succeeded
+VERBOSE: 3:12:25 PM - Resource Microsoft.Network/networkInterfaces 'nic10' provisioning status is succeeded
+VERBOSE: 3:12:25 PM - Resource Microsoft.Resources/deployments 'member-resources0' provisioning status is running
+VERBOSE: 3:12:25 PM - Resource Microsoft.Resources/deployments 'jumpbox-resources' provisioning status is running
+VERBOSE: 3:15:43 PM - Resource Microsoft.Resources/deployments 'jumpbox-resources' provisioning status
+is succeeded
+VERBOSE: 3:18:33 PM - Resource Microsoft.Resources/deployments 'member-resources0' provisioning status
+is succeeded
+VERBOSE: 3:18:37 PM - Resource Microsoft.Resources/deployments 'lastmember-resources' provisioning
+status is running
+VERBOSE: 3:25:23 PM - Resource Microsoft.Resources/deployments 'lastmember-resources' provisioning
+status is succeeded
+VERBOSE: 3:25:30 PM - Resource Microsoft.Resources/deployments 'arbiter-resources' provisioning status
+is running
+VERBOSE: 3:25:37 PM - Resource Microsoft.Compute/virtualMachines 'nodejsvm1' provisioning status is
+running
+VERBOSE: 3:25:37 PM - Resource Microsoft.Compute/virtualMachines 'nodejsvm0' provisioning status is
+running
+VERBOSE: 3:27:11 PM - Resource Microsoft.Compute/virtualMachines 'nodejsvm1' provisioning status is
+succeeded
+VERBOSE: 3:27:11 PM - Resource Microsoft.Compute/virtualMachines 'nodejsvm0' provisioning status is
+succeeded
+VERBOSE: 3:27:22 PM - Resource Microsoft.Compute/virtualMachines/extensions 'nodejsvm0/extension'
+provisioning status is running
+VERBOSE: 3:27:22 PM - Resource Microsoft.Compute/virtualMachines/extensions 'nodejsvm1/extension'
+provisioning status is running
+
